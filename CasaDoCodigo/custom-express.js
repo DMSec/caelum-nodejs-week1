@@ -14,11 +14,13 @@ module.exports = function(){
 //páginas que existem, porém sempre seremos direcionados para as paginas de erros.
     app.use(function(req,res,next){
       res.status(404).render("erros/404");
+
       next();
     });
 
     app.use(function(error,req,res,next){
       res.status(500).render("erros/500");
+      console.log(error);
       next();
     });
 
