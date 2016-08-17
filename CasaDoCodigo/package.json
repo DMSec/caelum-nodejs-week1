@@ -1,0 +1,16 @@
+{
+  "name": "CasaDoCodigo",
+  "version": "0.0.1",
+  "description": "Treinamento Caelum",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Douglas Marra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.14.0",
+    "ejs": "~2.5.1",
+    "mysql": "~2.11.1"
+  }
+}
