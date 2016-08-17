@@ -14,7 +14,8 @@ module.exports = function(app){
       }
 
       console.log('Conexão com o banco OK');
-    })
+    });
+
     connection.query('select * from livros', function(err,result,fields){
       res.render("produtos/lista",{lista:result});
     });
