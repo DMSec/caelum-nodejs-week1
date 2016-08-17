@@ -13,9 +13,15 @@ module.exports = function(){
 //Erros devem sempre se colocados por ultimo, senão corremos o risco de acessar
 //páginas que existem, porém sempre seremos direcionados para as paginas de erros.
     app.use(function(req,res,next){
-      res.render("erros/404");
+      res.status(404).render("erros/404");
       next();
     });
+
+    app.use(function(error,req,res,next){
+      res.status(500).render("erros/500");
+      next();
+    });
+
 
 
 
