@@ -1,12 +1,13 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 module.exports = function(){
   app.set('view engine','ejs');
   app.use(express.static('./public'));
 
 
-
+  app.use(bodyParser.urlencoded());
 
   require('./routes/produto')(app);
 

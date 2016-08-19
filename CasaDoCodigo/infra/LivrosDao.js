@@ -8,4 +8,9 @@ module.exports = {
           callback(results);
       });
   }
+
+  cadastra: function(callback){
+      var con = connectionFactory();
+      con.query('insert into livros set ?',livros,callback);
+  }
 }

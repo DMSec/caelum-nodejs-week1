@@ -1,0 +1,12 @@
+<div class="errors">
+    <% if(validationErrors) { %>
+    <ul>
+        <% for(var i=0; i<validationErrors.length; i++) {%>
+        <li><%=validationErrors[i].param%> - <%=validationErrors[i].msg%></li>
+        <% } %>
+    </ul>
+    <%}%>
+</div>
+
+
+Colocar esse trecho na div errors dentro do form.ejs

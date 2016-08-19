@@ -1,16 +1,19 @@
 {
   "name": "CasaDoCodigo",
   "version": "0.0.1",
-  "description": "Treinamento Caelum",
-  "main": "server.js",
+  "description": "Treinamento Node API",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "~2.5.1",
+    "mysql": "~2.11.1",
+    "express": "~4.14.0",
+    "body-parser": "~1.15.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Douglas Marra",
-  "license": "ISC",
-  "dependencies": {
-    "express": "~4.14.0",
-    "ejs": "~2.5.1",
-    "mysql": "~2.11.1"
-  }
+  "license": "ISC"
 }
