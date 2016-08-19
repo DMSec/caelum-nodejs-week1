@@ -41,6 +41,22 @@ module.exports = function(app){
   app.post("/produtos", function(req,res){
     var livro = req.body;
 
+    req.assert('titulo','Titulo deve ser preenchido').notEmpty();
+    req.assert('preco','Preco deve ser um numero').isFloat();
+    var errors = req.validationErrors();
+
+    if(errors){
+      console.log("Há erros de validacao!");
+      res.format({
+        html: function(){
+          res.status(400).render("produtos/form",{validationErrors:errors});
+        },
+        json: function(){
+          res.status(400).send(errors);
+        }
+      });
+    }
+
     var connection = connectionFactory();
     connection.connect(function(err){
       if(err){

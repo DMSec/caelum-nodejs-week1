@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
 module.exports = function(){
   app.set('view engine','ejs');
@@ -9,6 +10,7 @@ module.exports = function(){
 
   app.use(bodyParser.urlencoded());
   app.use(bodyParser.json());
+  app.use(expressValidator());
 
   require('./routes/produto')(app);
 

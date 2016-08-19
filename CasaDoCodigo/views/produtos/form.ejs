@@ -3,7 +3,15 @@
 <div>
     <div class ="container min-container">
         <h2 class="basic-title">Add</h2>
-      <div class="errors">     </div>
+        <div class="errors">
+            <% if(locals.validationErrors) { %>
+            <ul>
+                <% for(var i=0; i<validationErrors.length; i++) {%>
+                <li><%=validationErrors[i].param%> - <%=validationErrors[i].msg%></li>
+                <% } %>
+            </ul>
+            <%}%>
+        </div>
         <form action="/produtos" method="post" class="well" role="form">
             <div class="form-group">
                 <label for="titulo">Titulo</label>
