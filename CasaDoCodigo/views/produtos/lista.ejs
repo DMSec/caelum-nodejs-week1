@@ -14,6 +14,15 @@
                     </tr>
                     </thead>
                     <tbody>
+                      <tr>
+                      <% if(locals.semResultado) { %>
+                        <div class="vazio">
+
+                          <%=semResultado%>%>
+
+                      </div>
+                    </tr>
+                      <%}else {%>
                     <% for(var i=0; i<lista.length; i++) {%>
                         <tr>
                             <td><%= lista[i].titulo %></td>
@@ -21,6 +30,12 @@
                             <td><p><%= lista[i].descricao%></p></td>
                         </tr>
                     <% } %>
+
+                      <% } %>
+
+
+
+
                     </tbody>
                 </table>
                 <a href="/produtos/form" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Novo livro</a>

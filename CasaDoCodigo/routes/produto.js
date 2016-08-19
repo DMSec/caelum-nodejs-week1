@@ -23,14 +23,30 @@ module.exports = function(app){
     var produtoDao = new ProdutoDao(connection);
 
     produtoDao.consulta(id, function(error,results,fields){
-      res.format({
-        html: function(){
-          res.render("produtos/lista",{lista:results});
-        },
-        json: function(){
-          res.json(results);
-        }
-      });
+      console.log(results)
+      if(!results[0]){
+        var resultado = "Não há registro";
+        res.format({
+          html: function(){
+            console.log(resultado)
+            res.render("produtos/lista",{semResultado:resultado});
+          },
+          json: function(){
+            console.log(resultado)
+            res.json(resultado);
+          }
+        });
+      }else{
+        res.format({
+          html: function(){
+            res.render("produtos/lista",{lista:results});
+          },
+          json: function(){
+            res.json(results);
+          }
+        });
+      }
+
 
     });
 
