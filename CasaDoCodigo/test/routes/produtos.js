@@ -6,7 +6,11 @@ describe("#ProdutosController", function(){
     request.get('/produtos')
         .set('Accept','application/json')
         .expect('Content-Type',/json/)
-        .expect('200',done)
+        .expect(200,done)
+      //  .end(function(err, res) {
+    //    if (err) return done(err);
+    //    done();
+      //});
   });
 
   it('listagem de produtos html',function(done){
@@ -14,5 +18,5 @@ describe("#ProdutosController", function(){
         .expect('Content-Type',/html/)
         .expect(200,done)
   });
-  
+
 })
