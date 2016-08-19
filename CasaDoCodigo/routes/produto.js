@@ -3,6 +3,42 @@ var ProdutoDao = require('../infra/ProdutoDao');
 
 module.exports = function(app){
 
+  app.get("/produtos/:id", function(req,res){
+    var livro = req.body;
+    var id = req.params.id;
+    debugger;
+
+
+    var connection = connectionFactory();
+    connection.connect(function(err){
+      if(err){
+        console.log('Não foi possivel conectar no banco!');
+        console.log(err);
+        return;
+      }
+
+      console.log('Conexão com o banco OK');
+    });
+
+    var produtoDao = new ProdutoDao(connection);
+
+    produtoDao.consulta(id, function(error,results,fields){
+      res.format({
+        html: function(){
+          res.render("produtos/lista",{lista:results});
+        },
+        json: function(){
+          res.json(results);
+        }
+      });
+
+    });
+
+
+        connection.end(function(err){ });
+
+  });
+
   app.get("/produtos", function(req,res){
 
 
