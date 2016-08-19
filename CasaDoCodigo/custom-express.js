@@ -8,6 +8,7 @@ module.exports = function(){
 
 
   app.use(bodyParser.urlencoded());
+  app.use(bodyParser.json());
 
   require('./routes/produto')(app);
 

@@ -20,7 +20,16 @@ module.exports = function(app){
     var produtoDao = new ProdutoDao(connection);
 
     produtoDao.lista(function(error,results,fields){
-      res.render("produtos/lista",{lista:results});
+      res.format({
+        html: function(){
+          res.render("produtos/lista",{lista:results});
+        },
+        json: function(){
+          res.json(results);
+        }
+      });
+
+      //res.render("produtos/lista",{lista:results});
     });
 
 
@@ -46,7 +55,7 @@ module.exports = function(app){
     var produtoDao = new ProdutoDao(connection);
 
     produtoDao.salva(livro, function(exception,results){
-      res.render("produtos/salvo");
+      res.redirect("/produtos");
     });
 
     connection.end(function(err){ });
