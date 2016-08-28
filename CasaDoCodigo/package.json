@@ -4,11 +4,12 @@
   "description": "Treinamento Node API",
   "main": "index.js",
   "dependencies": {
-    "ejs": "~2.5.1",
-    "mysql": "~2.11.1",
-    "express": "~4.14.0",
     "body-parser": "~1.15.2",
-    "express-validator": "~2.20.8"
+    "ejs": "~2.5.1",
+    "express": "~4.14.0",
+    "express-validator": "~2.20.8",
+    "mysql": "~2.11.1",
+    "socket.io": "^1.4.8"
   },
   "devDependencies": {
     "supertest": "~2.0.0",
